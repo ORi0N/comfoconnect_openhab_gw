@@ -1,0 +1,27 @@
+Text item=TempHumOutside label="Buiten [%s]" labelcolor=[Ventilation_TemperatureOutdoorAir>=35="fuchsia",Ventilation_TemperatureOutdoorAir>=30="darkviolett",Ventilation_TemperatureOutdoorAir>=25="blueviolett",Ventilation$
+Text item=TempHumInside label="Binnen [%s]" labelcolor=[Ventilation_TemperatureExtractAir>=35="fuchsia",Ventilation_TemperatureExtractAir>=30="darkviolett",Ventilation_TemperatureExtractAir>=25="blueviolett",Ventilation_$
+
+                Text label="Ventilation details" icon="fan"{
+                        Switch item=Ventilation_FanSpeed mappings=[0="AWAY", 1="NORMAL", 2="HIGH", 3="MAX"]
+                        Switch item=Ventilation_RunningMode mappings=[4="AUTO", 5="MANUAL", 41="AUTO(MAN)"]
+                        Switch item=Ventilation_VentilationMode mappings=[7="SUPPLY ONLY", 8="BALANCE"]
+                        Default item=Ventilation_CountdownTillNextSpeedChange
+                        Default item=Ventilation_BypassState
+                        Default item=Ventilation_FilterDaysLeft
+                        Default item=Ventilation_SupplyFanDuty
+                        Default item=Ventilation_ExhaustFanDuty
+                        Default item=Ventilation_SupplyFanFlow
+                        Default item=Ventilation_ExtractFanFlow
+                        Default item=Ventilation_CurrentPowerConsumption
+                        Default item=Ventilation_TotalPowerConsumption
+                        Default item=Ventilation_ActualAvoidedHeating
+                        Default item=Ventilation_TotalAvoidedHeating
+                        Default item=Ventilation_TemperatureSupplyAir
+                        Default item=Ventilation_HumiditySupplyAir
+                        Default item=Ventilation_TemperatureExtractAir
+                        Default item=Ventilation_HumidityExtractAir
+                        Default item=Ventilation_TemperatureExhaustAir
+                        Default item=Ventilation_HumidityExhaustAir
+                        Default item=Ventilation_TemperatureOutdoorAir
+                        Default item=Ventilation_HumidityOutdoorAir
+                }
