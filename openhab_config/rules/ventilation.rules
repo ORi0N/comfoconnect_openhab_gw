@@ -1,0 +1,27 @@
+rule "Readible Outside Temp"
+when
+        Item Ventilation_TemperatureOutdoorAir changed or
+        Item Ventilation_HumidityOutdoorAir changed or
+        Time cron "0 */5 * * * ?"
+then
+                logInfo("Ventilation", "Outside temp trigger")
+                var Number Humi = Ventilation_HumidityOutdoorAir.state
+                var Number Temp = Ventilation_TemperatureOutdoorAir.state
+                var Number Humi_r = (Math::round(Humi.floatValue))
+                var Number Temp_r = (Math::round(Temp.floatValue*10.0)/10.0)
+                postUpdate(TempHumOutside, Temp_r + " °C  / " + Humi_r + "%")
+end
+
+rule "Readible Inside Temp"
+when
+        Item Ventilation_TemperatureExtractAir changed or
+        Item Ventilation_HumidityExtractAir changed or
+        Time cron "0 */5 * * * ?"
+then
+                logInfo("Ventilation", "Inside temp trigger")
+                var Number Humi2 = Ventilation_HumidityExtractAir.state
+                var Number Temp2 = Ventilation_TemperatureExtractAir.state
+                var Number Humi_r2 = (Math::round(Humi2.floatValue))
+                var Number Temp_r2 = (Math::round(Temp2.floatValue*10.0)/10.0)
+                postUpdate(TempHumInside, Temp_r2 + " °C  / " + Humi_r2 + "%")
+end
